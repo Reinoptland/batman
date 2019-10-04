@@ -1,7 +1,7 @@
 const initialState = {
     name: 'Batman',
     health: 5,
-    inventory: [],
+    inventory: [], // <---
     heroic: true,
     weapon: {
       type: 'battarang',
@@ -10,7 +10,16 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action = {}) => {
-    return state
+    switch (action.type) {
+        case 'REST':
+            return { ...state, health: 10 }
+        
+        case 'PICKUP_WEAPON': 
+            return { ...state, inventory: [...state.inventory, action.payload ]}
+    
+        default:
+            return state
+    }
 }
 
 export default reducer
