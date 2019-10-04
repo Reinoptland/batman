@@ -16,6 +16,9 @@ const reducer = (state = initialState, action = {}) => {
         
         case 'PICKUP_WEAPON': 
             return { ...state, inventory: [...state.inventory, action.payload ]}
+
+        case 'CHANGE_NAME':
+            return { ...state, name: action.payload }
     
         default:
             return state

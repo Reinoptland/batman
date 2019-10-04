@@ -37,6 +37,7 @@ class Hero extends Component {
         }
 
         this.props.dispatch(action)
+        this.setState({ changedName: '' })
     }
 
     handleChange = (event) => {
