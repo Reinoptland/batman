@@ -11,13 +11,13 @@ class Hero extends Component {
         this.props.dispatch(action)
     }
 
-    pickup = () => {
+    pickup = (weaponType, damage) => {
         console.log('hello')
         const action = {
             type: "PICKUP_WEAPON",
             payload: {
-                type: 'lollipop',
-                damage: 1
+                type: weaponType,
+                damage: damage
             }
         }
 
@@ -42,7 +42,8 @@ class Hero extends Component {
                 }) }
             </div>
             <button onClick={this.rest}>REST</button>
-            <button onClick={this.pickup}>Pickup Stun Grenade</button>
+            <button onClick={() => this.pickup('lollipop', 1)}>Pickup Lollipop</button>
+            <button onClick={() => this.pickup('tuba', 99)}>Pickup Tuba</button>
         </div>
     }
 }
